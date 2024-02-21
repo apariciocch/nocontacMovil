@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp del Inmencionable</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    
+  <h1>WhatsApp del Inmencionable</h1>
+
+  <label for="countryCode">Seleccione el código de país:</label>
+  <select id="countryCode">
+    <!-- Opciones de código de país se generarán dinámicamente aquí -->
+  </select>
+
+  <label for="phoneNumber">Ingrese el número del usuario que no quieres agregar en tus contactos, ejemplo: 999 999 999 / 999666999:</label>
+  <input type="text" id="phoneNumber" placeholder="Ingrese el número">
+
+  <button onclick="openWhatsApp()">Abrir WhatsApp</button>
+
+  <script>
+    // Lista de códigos de país con sus nombres
+    var countryCodes = [
+        { code: "51", name: "Perú (+51)" },
+        { code: "1", name: "Estados Unidos (+1)" },
+        { code: "44", name: "Reino Unido (+44)" },
+        { code: "49", name: "Alemania (+49)" },
+        { code: "81", name: "Japón (+81)" },
+        { code: "1", name: "Estados Unidos (+1)" },
+        { code: "1", name: "Canadá (+1)" },
+        { code: "52", name: "México (+52)" },
+        { code: "54", name: "Argentina (+54)" },
+        { code: "55", name: "Brasil (+55)" },
+        { code: "56", name: "Chile (+56)" },
+        { code: "57", name: "Colombia (+57)" },
+        { code: "58", name: "Venezuela (+58)" },
+        { code: "52", name: "México (+52)" },
+      // Agrega más códigos según sea necesario
+    ];
+
+    // Función para generar las opciones de código de país
+    function generateCountryOptions() {
+      var countryCodeSelect = document.getElementById("countryCode");
+
+      countryCodes.forEach(function (country) {
+        var option = document.createElement("option");
+        option.value = country.code;
+        option.text = country.name;
+        countryCodeSelect.appendChild(option);
+      });
+    }
+
+    // Llama a la función para generar las opciones al cargar la página
+    generateCountryOptions();
+
+    // Función para abrir WhatsApp Web con el número de teléfono ingresado
+    function openWhatsApp() {
+      var countryCode = document.getElementById("countryCode").value;
+      var phoneNumberInput = document.getElementById("phoneNumber");
+      var phoneNumber = phoneNumberInput.value;
+
+      phoneNumber = phoneNumber.replace(/\D/g, '');
+
+      if (phoneNumber.trim() === "") {
+        alert("Por favor, ingrese un número de celular válido.");
+        return;
+      }
+
+      var whatsappLink = "https://web.whatsapp.com/send?phone=" + countryCode + phoneNumber;
+
+      window.open(whatsappLink);
+    }
+  </script>
+
+</body>
+</html>
