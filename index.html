@@ -4,21 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WhatsApp del Inmencionable</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-    
-  <h1>WhatsApp del Inmencionable</h1>
 
-  <label for="countryCode">Seleccione el código de país:</label>
-  <select id="countryCode">
-    <!-- Opciones de código de país se generarán dinámicamente aquí -->
-  </select>
+  <div class="container">
+    <h1>WhatsApp del Inmencionable</h1>
 
-  <label for="phoneNumber">Ingrese el número del usuario que no quieres agregar en tus contactos, ejemplo: 999 999 999 / 999666999:</label>
-  <input type="text" id="phoneNumber" placeholder="Ingrese el número">
+    <label for="countryCode">Seleccione el código de país:</label>
+    <select id="countryCode">
+      <!-- Opciones de código de país se generarán dinámicamente aquí -->
+    </select>
 
-  <button onclick="openWhatsApp()">Abrir WhatsApp</button>
+    <label for="phoneNumber">Ingrese el número del usuario que no quieres agregar en tus contactos, ejemplo: 999 999 999 / 999666999:</label>
+    <input type="text" id="phoneNumber" placeholder="Ingrese el número">
+
+    <button onclick="openWhatsApp()">Abrir WhatsApp</button>
+  </div>
 
   <script>
     // Lista de códigos de país con sus nombres
